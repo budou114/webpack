@@ -11,6 +11,11 @@ module.exports = {
       {
         test: /\.css/,
         use: [
+          //  loaderは下から読み込まれるためこの順番でないとエラーになる
+          // CSSを'css-loder'で読み込んで、'style-loader'で適用させる
+          {
+            loader: 'style-loader'
+          },
           {
             loader: 'css-loader'
           }
