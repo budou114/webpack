@@ -1,6 +1,7 @@
 const path = require('path');
-const miniCssExtractPlugin = require('mini-css-extract-plugin');
-const htmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
   entry: './src/index.js',
@@ -16,7 +17,7 @@ module.exports = {
           // loaderは下から読み込まれるためこの順番でないとエラーになる
           // CSSを'css-loder'で読み込んで、'miniCssExtractPlugin'で適用させる
           {
-            loader: miniCssExtractPlugin.loader
+            loader: MiniCssExtractPlugin.loader
           },
           {
             loader: 'css-loader'
@@ -26,9 +27,10 @@ module.exports = {
     ]
   },
   plugins: [
-    new miniCssExtractPlugin(),
-    new htmlWebpackPlugin({
+    new MiniCssExtractPlugin(),
+    new HtmlWebpackPlugin({
       template: './src/index.html'
-    })
+    }),
+    new CleanWebpackPlugin(),
   ]
 }
