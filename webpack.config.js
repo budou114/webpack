@@ -25,12 +25,19 @@ module.exports = {
         ]
       },
       {
-        test: /\.png/,
+        test: /\.(png|jpg)/,
         use: [
+          // {
+          //   loader: 'url-loader',
+          //   options: {
+          //     esModule: false
+          //   }
+          // }
           {
-            loader: 'url-loader',
+            loader: 'file-loader',
             options: {
-              esModule: false
+              esModule: false,
+              name: 'images/[name].[ext]'
             }
           }
         ]
