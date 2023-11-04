@@ -1,11 +1,5 @@
-doctype html
-html(lang="ja")
-  head
-    meta(charaset="UTF-8")
-    meta(name="viewport" content="width=device-width, initial-scale=1.0")
-    title Test Page
-  body
-    include _menu.pug
-    h1 This is a Test Page
-    img(src="../images/icon.png")
-    img(src="../images/thumbnail.jpg")
+extends _layout.pug
+block content
+  h1 This is a Test Page
+  img(src="../images/icon.png")
+  img(src="../images/thumbnail.jpg")
