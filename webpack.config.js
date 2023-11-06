@@ -12,7 +12,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.css/,
+        test: /\.(css|sass|scss)/,
         use: [
           // loaderは下から読み込まれるためこの順番でないとエラーになる
           // CSSを'css-loder'で読み込んで、'miniCssExtractPlugin'で適用させる
@@ -21,6 +21,9 @@ module.exports = {
           },
           {
             loader: 'css-loader'
+          },
+          {
+            loader: 'sass-loader'
           }
         ]
       },
