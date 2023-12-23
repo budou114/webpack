@@ -1,6 +1,9 @@
-# webpackの学習  
-- 開発時ビルドコマンド  
-npx webpack --mode development
+# webpackの学習
+- 開発時ビルドコマンド
+npm run build:dev
 
-- 開発時ローカルサーバー起動コマンド  
-npx webpack server  --mode=development
+- 本番時ビルドコマンド
+npm run build
+
+- 開発時ローカルサーバー起動コマンド
+npm start
