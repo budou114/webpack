@@ -47,30 +47,29 @@ module.exports = {
         ]
       },
       {
-        test: /\.(png|jpg)/,
-        type: 'asset/resource',
-        generator: {
-          filename: 'images/[name][ext]'
-        }
-        // use: [
-        //   // {
-        //   //   loader: 'url-loader',
-        //   //   options: {
-        //   //     esModule: false
-        //   //   }
-        //   // }
-        //   {
-        //     loader: 'file-loader',
-        //     options: {
-        //       esModule: false,
-        //       name: 'images/[name].[ext]'
-        //     }
-        //   }
-        // ]
+        test: /\.(png|jpg|jpeg)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              esModule: false,
+              name: 'images/[name].[ext]',
+            },
+          },
+          {
+            loader: 'image-webpack-loader',
+            options: {
+              mozjpeg: {
+                progressive: true,
+                quality: 65,
+              },
+            },
+          },
+        ],
       },
       {
         test: /\.pug/,
-        use : [
+        use: [
           {
             loader: 'html-loader'
           },
